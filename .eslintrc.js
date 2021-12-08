@@ -1,38 +1,25 @@
 module.exports = {
   root: true,
-  extends: [
-    'prettier',
-    'react-app',
-    'react-app/jest'
-  ],
-  plugins: [
-    'prettier',
-    'import-helpers'
-  ],
+  extends: ['google', 'prettier', 'react-app', 'react-app/jest'],
+  plugins: ['prettier', 'import-helpers'],
   rules: {
-    'quotes': [
+    'prettier/prettier': [
       'error',
-      'single',
-      { 'avoidEscape': true, 'allowTemplateLiterals': false }
+      {
+        singleQuote: true,
+        trailingComma: 'es5',
+      },
     ],
     'import-helpers/order-imports': [
       'warn',
       {
-        'newlinesBetween': 'always',
-        'groups': [
-          '/^react/',
-          'module',
-          [
-            'parent',
-            'sibling',
-            'index'
-          ]
-        ],
-        'alphabetize': {
-          'order': 'asc',
-          'ignoreCase': true
-        }
-      }
-    ]
-  }
+        newlinesBetween: 'always',
+        groups: ['/^react/', 'module', ['parent', 'sibling', 'index']],
+        alphabetize: {
+          order: 'asc',
+          ignoreCase: true,
+        },
+      },
+    ],
+  },
 };
