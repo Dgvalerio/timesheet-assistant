@@ -1,39 +1,20 @@
-import React, { useState } from 'react';
+import React, { FC, lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import styled from 'styled-components';
+import { routes } from './utils/routes';
 
-const Container = styled.main`
-  padding: 4rem;
+const Home = lazy(() => import('./pages/home'));
 
-  h1 {
-    font-size: 6rem;
-    text-align: center;
-  }
-
-  input {
-    background-color: rgba(0, 0, 0, 0.08);
-    color: #fff;
-    padding: 0.25rem;
-    border: none;
-    font-size: 2rem;
-    width: 100%;
-    text-align: center;
-    border-radius: 0.5rem;
-  }
-`;
-
-const App = () => {
-  const [entered, setEntered] = useState('');
-
+const App: FC = () => {
   return (
-    <Container>
-      <h1>To Timesheet</h1>
-      <input
-        type="text"
-        value={entered}
-        onChange={({ target: { value } }) => setEntered(value)}
-      />
-    </Container>
+    <BrowserRouter>
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Routes>
+          <Route path={routes.home()} element={<Home />} />
+          <Route path="*" element={<h1>Not Found</h1>} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
 };
 

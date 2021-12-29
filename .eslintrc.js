@@ -1,7 +1,13 @@
 module.exports = {
   root: true,
-  extends: ['google', 'prettier', 'react-app', 'react-app/jest'],
-  plugins: ['prettier', 'import-helpers'],
+  extends: [
+    'google',
+    'prettier',
+    'react-app',
+    'react-app/jest',
+    'plugin:@typescript-eslint/recommended',
+  ],
+  plugins: ['prettier', 'import-helpers', '@typescript-eslint'],
   rules: {
     'prettier/prettier': [
       'error',
