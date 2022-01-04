@@ -1,6 +1,7 @@
 import React, { FC, lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
+import Login from './pages/wrapper/login';
 import { routes } from './utils/routes';
 
 const Home = lazy(() => import('./pages/home'));
@@ -9,10 +10,16 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <Suspense fallback={<h1>Loading...</h1>}>
-        <Routes>
-          <Route path={routes.home()} element={<Home />} />
-          <Route path="*" element={<h1>Not Found</h1>} />
-        </Routes>
+        <Switch>
+          <Route path={routes.home()} children={<Home />} exact />
+          <Route
+            path={routes.wrapper._()}
+            children={<Redirect to={routes.wrapper.login()} />}
+            exact
+          />
+          <Route path={routes.wrapper.login()} children={<Login />} exact />
+          <Route path="*" children={<h1>Not Found</h1>} exact />
+        </Switch>
       </Suspense>
     </BrowserRouter>
   );
