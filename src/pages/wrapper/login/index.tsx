@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react';
 
-import { LoginContainer } from './styles';
+import { LoginStyles as Styles } from './styles';
 
 const Login: FC = () => {
   const [entered, setEntered] = useState('');
 
   return (
-    <LoginContainer>
+    <Styles.Container>
       <h1>Login</h1>
       <br />
       <input
@@ -21,7 +21,7 @@ const Login: FC = () => {
         value={entered}
         onChange={({ target: { value } }) => setEntered(value)}
       />
-    </LoginContainer>
+    </Styles.Container>
   );
 };
 

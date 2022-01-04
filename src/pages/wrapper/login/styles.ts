@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginContainer = styled.main`
+const Container = styled.main`
   padding: 4rem;
 
   h1 {
@@ -19,3 +19,7 @@ export const LoginContainer = styled.main`
     border-radius: 0.5rem;
   }
 `;
+
+export const LoginStyles = {
+  Container,
+};

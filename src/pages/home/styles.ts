@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HomeContainer = styled.main`
+const Container = styled.main`
   padding: 4rem;
 
   h1 {
@@ -19,3 +19,7 @@ export const HomeContainer = styled.main`
     border-radius: 0.5rem;
   }
 `;
+
+export const HomeStyles = {
+  Container,
+};
