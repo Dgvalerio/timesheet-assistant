@@ -8,15 +8,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    #root {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
 
-    align-items: center;
-    justify-content: center;
+      align-items: stretch;
+      justify-content: stretch;
 
-    background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
+      background-color: ${({ theme }) => theme.colors.background};
+      color: ${({ theme }) => theme.colors.text};
+    }
   }
 `;
 
