@@ -1,10 +1,10 @@
 import React, { FC, lazy, Suspense } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-import Login from './pages/wrapper/login';
 import { routes } from './utils/routes';
 
 const Home = lazy(() => import('./pages/home'));
+const LoginWrapper = lazy(() => import('./pages/wrapper/login'));
 
 const App: FC = () => {
   return (
@@ -17,7 +17,11 @@ const App: FC = () => {
             children={<Redirect to={routes.wrapper.login()} />}
             exact
           />
-          <Route path={routes.wrapper.login()} children={<Login />} exact />
+          <Route
+            path={routes.wrapper.login()}
+            children={<LoginWrapper />}
+            exact
+          />
           <Route path="*" children={<h1>Not Found</h1>} exact />
         </Switch>
       </Suspense>
